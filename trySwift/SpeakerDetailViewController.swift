@@ -32,7 +32,8 @@ extension SpeakerDetailViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if let _ = speaker.twitter { return 3 }
+        return 2
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -47,7 +48,7 @@ extension SpeakerDetailViewController {
             return cell
         case .Twitter:
             let cell = tableView.dequeueReusableCellWithIdentifier(String(TwitterFollowTableViewCell), forIndexPath: indexPath) as! TwitterFollowTableViewCell
-            cell.configure(withUsername: speaker.twitter, delegate: self)
+            cell.configure(withUsername: speaker.twitter ?? "", delegate: self)
             return cell
         }
     }

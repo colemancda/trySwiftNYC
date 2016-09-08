@@ -34,7 +34,8 @@ extension OfficeHoursDetailViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        if let _ = speaker.twitter { return 4 }
+        return 3
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -53,7 +54,7 @@ extension OfficeHoursDetailViewController {
             return cell
         case .Twitter:
             let cell = tableView.dequeueReusableCellWithIdentifier(String(TwitterFollowTableViewCell), forIndexPath: indexPath) as! TwitterFollowTableViewCell
-            cell.configure(withUsername: speaker.twitter, delegate: self)
+            cell.configure(withUsername: speaker.twitter ?? "", delegate: self)
             return cell
         }
     }

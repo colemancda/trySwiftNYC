@@ -13,7 +13,7 @@ import UIKit
 class Speaker: Object {
     dynamic var id: Int = 0
     dynamic var name: String = "TBD"
-    dynamic var twitter: String = "TBD"
+    dynamic var twitter: String? = nil
     dynamic var imageName: String? = nil
     dynamic var imagePath: String? = nil
     dynamic var bio: String = "TBD"
